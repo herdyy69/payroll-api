@@ -12,7 +12,15 @@ class RiwayatLaporan extends Model
     protected $table = 'riwayat_laporans';
 
     protected $fillable = [
+        'kode_laporan',
         'karyawan_id',
+        'gaji_pokok',
+        'bonus',
+        'potongan_izin',
+        'potongan_sakit',
+        'potongan_alpa',
+        'total_potongan',
+        'total_gaji',
         'tanggal_laporan',
         'keterangan',
     ];

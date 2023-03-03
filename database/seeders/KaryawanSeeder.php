@@ -16,7 +16,7 @@ class KaryawanSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create('id_ID');
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $karyawan = \App\Models\Karyawan::create([
                 'pegawai' => $faker->randomElement(['Aktif', 'Tidak Aktif']),
                 'nama_pegawai' => $faker->name,
@@ -36,7 +36,6 @@ class KaryawanSeeder extends Seeder
                 'keterangan' => $faker->text,
                 'nama_bank' => $faker->randomElement([
                     'CIMB NIAGA',
-                    'CASH',
                 ]),
                 'no_rekening' => $faker->bankAccountNumber,
                 'atas_nama' => $faker->name,

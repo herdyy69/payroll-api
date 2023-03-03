@@ -16,9 +16,11 @@ class KaryawanResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'nik' => $this->nik,
             'nama' => $this->nama_pegawai,
             'alamat' => $this->alamat,
             'no_telp' => $this->no_telp,
+            'email' => $this->email,
             'jenis_kelamin' => $this->jenis_kelamin,
             'tempat_lahir' => $this->tempat_lahir,
             'tanggal_lahir' => $this->tanggal_lahir,

@@ -85,11 +85,29 @@ class StatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $status = Status::find($id);
-        $status->status_pegawai = $request->status_pegawai;
-        $status->bonus = $request->bonus;
-        $status->save();
-        return $status;
+        // $status = Status::find($id);
+        // $status->bonus = $request->bonus;
+        // $status->save();
+        // return $status;
+        $status  = Status::updateOrCreate(
+            ['id' => $id],
+            [
+                'bonus' => $request->bonus,
+            ]
+        );
+        if  ($status->wasChanged()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil diubah!',
+                'data' => $status
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data tidak ada perubahan!',
+                'data' => $status
+            ], 400);
+        }
     }
 
     /**

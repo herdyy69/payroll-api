@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 
 return new class extends Migration
 {
@@ -26,20 +27,20 @@ return new class extends Migration
             $table->enum('status_hubungan', ['Menikah', 'Belum Menikah']);
             $table->enum('agama', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']);
             $table->string('foto')->nullable();
-            $table->date('tanggal_masuk');
+            $today = Carbon::today();
+            $table->date('tanggal_masuk')->default($today);
             $table->date('tanggal_keluar')->nullable();
             $table->string('lama_kerja')->nullable();
             $table->string('keterangan')->nullable();
             // rekening
             $table->enum('nama_bank', [
                 'CIMB NIAGA',
-                'CASH',
                 ]
             )->nullable();
             $table->string('no_rekening')->nullable();
             $table->string('atas_nama')->nullable();
             // end rekening
-            $table->enum('pegawai', ['Aktif', 'Tidak Aktif']);
+            $table->enum('pegawai', ['Aktif', 'Tidak Aktif'])->default('Aktif');
             $table->unsignedBigInteger('jabatan_id');
             $table->foreign('jabatan_id')->references('id')->on('jabatans');
             $table->unsignedBigInteger('status_id');

@@ -87,16 +87,30 @@ class JabatanController extends Controller
      * @param  \App\Models\Jabatan  $jabatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jabatan $jabatan)
+
+     
+    public function update(Request $request, $id)
     {
-        $jabatan = Jabatan::find($jabatan);
+        $jabatan = Jabatan::find($id);
         $jabatan->jabatan_pegawai = $request->jabatan_pegawai;
         $jabatan->gaji_pokok = $request->gaji_pokok;
         $jabatan->uang_makan = $request->uang_makan;
         $jabatan->uang_transport = $request->uang_transport;
         $jabatan->bonus = $request->bonus;
         $jabatan->save();
-        return $jabatan;
+
+        if ($jabatan->wasChanged()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil diubah!',
+                'data' => $jabatan,
+            ], 200);
+        }
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data tidak ada perubahan!',
+            'data' => $jabatan,
+        ], 400);
     }
 
     /**

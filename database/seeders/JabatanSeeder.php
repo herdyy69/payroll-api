@@ -16,6 +16,20 @@ class JabatanSeeder extends Seeder
     public function run()
     {
         Jabatan::create([
+            'jabatan_pegawai' => 'Human Resource Development',
+            'gaji_pokok' => 3000000,
+            'uang_makan' => 500000,
+            'uang_transport' => 500000,
+            'bonus' => 0
+        ]);
+        Jabatan::create([
+            'jabatan_pegawai' => 'Chief Executive Officer',
+            'gaji_pokok' => 10000000,
+            'uang_makan' => 500000,
+            'uang_transport' => 500000,
+            'bonus' => 1000000
+        ]);
+        Jabatan::create([
             'jabatan_pegawai' => 'Manager',
             'gaji_pokok' => 10000000,
             'uang_makan' => 500000,
@@ -31,6 +45,20 @@ class JabatanSeeder extends Seeder
         ]);
         Jabatan::create([
             'jabatan_pegawai' => 'Staff',
+            'gaji_pokok' => 3000000,
+            'uang_makan' => 500000,
+            'uang_transport' => 500000,
+            'bonus' => 0
+        ]);
+        Jabatan::create([
+            'jabatan_pegawai' => 'Salesman',
+            'gaji_pokok' => 3000000,
+            'uang_makan' => 500000,
+            'uang_transport' => 500000,
+            'bonus' => 0
+        ]);
+        Jabatan::create([
+            'jabatan_pegawai' => 'Driver(Sopir)',
             'gaji_pokok' => 3000000,
             'uang_makan' => 500000,
             'uang_transport' => 500000,
